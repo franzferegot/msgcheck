@@ -312,9 +312,9 @@ class PoMessage:
         if not checkers:
             return errors
         for mid, mstr in self.messages:
-            if not mid or not mstr:
-                continue
             text = mstr if spelling == "str" else mid
+            if not text or not mid:
+                continue
             if self.fmt:
                 text = replace_formatters(text, self.fmt)
             checkers[0].set_text(text)

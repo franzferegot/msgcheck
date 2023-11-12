@@ -268,6 +268,27 @@ def test_spelling_id():
         assert report[i].get_misspelled_words() == [word]
 
 
+def test_spelling_en_pot():
+    """Test spelling on source messages (English) of gettext files
+    with empty translation."""
+    po_check = PoCheck()
+    po_check.set_spelling_options("id", None, [])
+    result = po_check.check_files([local_path("en_spelling_id.pot")])
+
+    # be sure we have 1 file in result
+    assert len(result) == 1
+
+    # the file has 2 spelling errors: "Thsi" and "errro"
+    report = result[0][1]
+    assert len(report) == 2
+    for i, word in enumerate(("Thsi", "testtwo")):
+        assert report[i].idmsg == "spelling-id"
+        assert isinstance(report[i].message, list)
+        assert len(report[i].message) == 1
+        assert report[i].message[0] == word
+        assert report[i].get_misspelled_words() == [word]
+
+
 def test_spelling_id_multilpe_pwl():
     """
     Test spelling on source messages (English) of gettext files
