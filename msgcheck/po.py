@@ -511,6 +511,7 @@ class PoCheck:
 
         # spelling options
         self.spelling = None
+        self.id_language = 'en'
         self.dicts = None
         self.extra_checkers = []
         self.pwl = None
@@ -526,11 +527,13 @@ class PoCheck:
         if check in self.checks:
             self.checks[check] = bool(state)
 
-    def set_spelling_options(self, spelling, dicts, pwl_files):
+    def set_spelling_options(self, spelling, dicts, pwl_files, id_language=''):
         """Set spelling options."""
         self.spelling = spelling
         self.dicts = dicts
         self.pwl = get_concatenated_files(pwl_files)
+        if id_language:
+            self.id_language = id_language
 
         # build extra checkers with dicts
         self.extra_checkers = []
@@ -558,7 +561,7 @@ class PoCheck:
                     "Enchant module not found (please install \"pyenchant\")"
                 )
             lang = (
-                po_file.props["language"] if self.spelling == "str" else "en"
+                po_file.props["language"] if self.spelling == "str" else self.id_language
             )
             try:
                 if self.pwl:

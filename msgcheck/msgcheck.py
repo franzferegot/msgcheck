@@ -108,6 +108,10 @@ The script returns:
         "times)",
     )
     parser.add_argument(
+        '--id-language',
+        help='source language',
+    )
+    parser.add_argument(
         "-m",
         "--only-misspelled",
         action="store_true",
@@ -187,7 +191,8 @@ def msgcheck_check_files(args):
 
     # check all files
     try:
-        po_check.set_spelling_options(args.spelling, args.dicts, args.pwl)
+        po_check.set_spelling_options(args.spelling, args.dicts,
+                                      args.pwl, args.id_language)
         result = po_check.check_files(args.file)
     except (ImportError, IOError) as exc:
         print("FATAL:", exc, sep=" ")

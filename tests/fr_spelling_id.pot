@@ -1,0 +1,46 @@
+#
+# Copyright (C) 2009-2023 Sébastien Helleu <flashcode@flashtux.org>
+#
+# This file is part of msgcheck.
+#
+# Msgcheck is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# Msgcheck is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with msgcheck.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+#
+# Gettext file with 1 spelling error (in French source messages) and empty translations.
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-10 16:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Test 1 sur deux lignes."
+msgstr ""
+
+msgid "Test 2 sur deux lignes.\nLigne 2.\nLigne 3."
+msgstr ""
+
+msgid "Testéee 1"
+msgstr ""
+
+

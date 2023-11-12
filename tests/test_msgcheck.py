@@ -289,6 +289,27 @@ def test_spelling_en_pot():
         assert report[i].get_misspelled_words() == [word]
 
 
+def test_spelling_fr_pot():
+    """Test spelling on source messages (French) of gettext files
+    with empty translation."""
+    po_check = PoCheck()
+    po_check.set_spelling_options("id", None, [], id_language='fr')
+    result = po_check.check_files([local_path("fr_spelling_id.pot")])
+
+    # be sure we have 1 file in result
+    assert len(result) == 1
+
+    # the file has 1 spelling errors: "Testée"
+    report = result[0][1]
+    assert len(report) == 1
+    for i, word in enumerate(("Testéee",)):
+        assert report[i].idmsg == "spelling-id"
+        assert isinstance(report[i].message, list)
+        assert len(report[i].message) == 1
+        assert report[i].message[0] == word
+        assert report[i].get_misspelled_words() == [word]
+
+
 def test_spelling_id_multilpe_pwl():
     """
     Test spelling on source messages (English) of gettext files
